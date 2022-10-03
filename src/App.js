@@ -14,17 +14,17 @@ const App = () => {
 
   const start = () => {
     setTimer(setInterval(() => {
-      setTimer(prevValue => prevValue + 0.01);
+      setTime(prevValue => prevValue + 0.01);
     }, 10))
   };
 
   const stop = () => {
     clearInterval(timer);
-    setTimer();
+    setTimer(null);
   }
 
-  useEffect((timer) => {
-    return (timer) => {
+  useEffect(() => {
+    return () => {
       if(timer) clearInterval(timer);
     };
   }, []);
@@ -32,9 +32,9 @@ const App = () => {
   return (
     <div>
       <FormattedTime time={time}>{time}</FormattedTime>
-      <Button value={start}>START</Button>
-      <Button value={stop}>STOP</Button>
-      <Button value={reset}>RESET</Button>
+      <Button function={start}>START</Button>
+      <Button function={stop}>STOP</Button>
+      <Button function={reset}>RESET</Button>
     </div>
   );
 };
