@@ -14,7 +14,7 @@ const App = () => {
 
   const start = () => {
     setTimer(setInterval(() => {
-      setTime(prevValue => prevValue + 0.01);
+      setTime(prevValue => prevValue + 10);
     }, 10))
   };
 
