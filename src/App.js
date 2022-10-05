@@ -9,13 +9,14 @@ const App = () => {
 
   const reset = () => {
     setTime(0);
-    setTimer(null);
   }
 
   const start = () => {
-    setTimer(setInterval(() => {
-      setTime(prevValue => prevValue + 10);
-    }, 10))
+    if(!timer) {
+      setTimer(setInterval(() => {
+        setTime(prevValue => prevValue + 10);
+      }, 10))
+    } 
   };
 
   const stop = () => {
